@@ -1,0 +1,17 @@
+<li class="list-products-item col-12 col-md-4 col-lg-3">
+  <%= link_to product_path(product) do %>
+    <div class="card">
+      <div class="card-img-top" style="background: url('<%= product.image.url %>') no-repeat center; background-size: cover; height: 240px"></div>
+      <div class="card-body">
+        <h5 class="title"><%= product.title %></h5>
+        <h6 class="price"><%= number_to_currency(product.price) %></h6>
+        <h6 class="price"><%= product.user.name %></h6>
+
+        <div class="text-muted">
+          <h6 class="category">디지털</h6>
+          <time><%= time_ago_in_words(product.created_at) %> 전</time>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</li>

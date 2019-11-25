@@ -1,0 +1,44 @@
+<nav class="navbar nav-global fixed-top navbar-expand-sm">
+  <div class="container">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'logo.svg', class: 'img-daangn', alt: '당근마켓', width: 132 %>
+    <% end %>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to new_product_path do %>
+          <i class="material-icons ico-create">create</i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to '로그인', new_user_session_path %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container container-main-index">
+  <h5 class="container-headline">중고 거래 물품</h5>
+
+  <!--
+  <div class="categories-group">
+    <a href="#" class="btn btn-category">디지털</a>
+    <a href="#" class="btn btn-category">가구</a>
+    <a href="#" class="btn btn-category">아동용품</a>
+    <a href="#" class="btn btn-category">생활용품</a>
+    <a href="#" class="btn btn-category">의류</a>
+    <a href="#" class="btn btn-category">스포츠</a>
+    <a href="#" class="btn btn-category">자동차</a>
+    <a href="#" class="btn btn-category">기타</a>
+  </div>
+  -->
+
+  <ul class="list-products row">
+    <%= render partial: 'products/product', collection: @products %>
+  </ul>
+
+  <%= paginate @products %>
+</div>

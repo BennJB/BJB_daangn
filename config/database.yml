@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  host: mysql-server
+  port: 3306
+  username: root
+  password: password
+  encoding: utf8
+
+development:
+  <<: *default
+  database: daangn_development
+
+test:
+  <<: *default
+  database: daang_test
+
+production:
+  <<: *default
+  database: my_database

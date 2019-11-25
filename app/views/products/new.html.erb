@@ -1,0 +1,15 @@
+<nav class="navbar nav-global fixed-top navbar-expand-sm">
+  <div class="container">
+    <%= link_to :back, class: 'navbar-brand' do %>
+      <i class="material-icons ic-filter">arrow_back_ios</i>뒤로
+    <% end %>
+  </div>
+</nav>
+
+<div class="container container-sm container-item-create">
+  <h5 class="container-headline">중고거래 상품 등록</h5>
+
+  <%= render 'form', product: @product %>
+</div>
+
+

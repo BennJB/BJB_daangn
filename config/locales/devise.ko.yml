@@ -1,0 +1,66 @@
+---
+ko:
+  devise:
+    confirmations:
+      confirmed: 이메일 주소가 인증되었습니다.
+      send_instructions: 이메일로 이메일 주소 인증 지침이 전송되었습니다.
+      send_paranoid_instructions: 이메일 주소가 이미 등록되어 있습니다. 몇 분 안에 이메일 주소 인증 지침 메일을 받을
+        수 있습니다.
+    failure:
+      already_authenticated: 이미 로그인되어 있습니다.
+      inactive: 계정이 아직 활성화되지 않았습니다.
+      invalid: 이메일 또는 비밀번호를 다시 확인하세요.
+      invited: 계속하려면 이메일 주소를 인증해주세요.
+      last_attempt: 이번 로그인 시도에 실패하면 계정이 잠깁니다.
+      locked: 계정이 잠겨있습니다.
+      not_found_in_database: 이메일 또는 비밀번호를 다시 확인하세요.
+      timeout: 세션이 만료되었습니다. 계속하려면 다시 로그인해야 합니다.
+      unauthenticated: 계속하려면 로그인하거나 가입해주세요.
+      unconfirmed: 계속하려면 이메일 주소를 인증해주세요.
+    invitations:
+      updated: 비밀번호를 변경했습니다.
+      updated_not_active: 비밀번호가 변경되었습니다.
+    mailer:
+      confirmation_instructions:
+        subject: 이메일 인증 지침
+      reset_password_instructions:
+        subject: 비밀번호를 변경해주세요.
+      unlock_instructions:
+        subject: 잠금 해제 지침
+    omniauth_callbacks:
+      failure: "%{reason}(으)로 인하여 %{kind} 연결에 실패했습니다."
+      success: "%{kind}을(를) 연결했습니다."
+    passwords:
+      no_token: 비밀번호 재설정 이메일을 거치지 않고 이 페이지에 접근할 수 없습니다. 비밀번호 재설정 이메일에서 오셨다면, 주소를 제대로
+        입력했는지 확인해 주세요.
+      send_instructions: 잠시 후에 비밀번호 재설정 지침 메일을 받을 수 있습니다.
+      send_paranoid_instructions: 잠시 후에 비밀번호 재설정 지침 메일을 받을 수 있습니다.
+      updated: 비밀번호를 변경했습니다.
+      updated_not_active: 비밀번호를 변경했습니다.
+    registrations:
+      destroyed: 프로그래머스에서 탈퇴하였습니다. 그동안 이용해 주셔서 감사합니다.
+      signed_up: 환영합니다! 프로그래머스에 로그인하였습니다.
+      signed_up_but_inactive: 계정이 있으나 계정이 활성화되어 있지 않아 로그인할 수 없습니다. 계정을 활성화해주세요.
+      signed_up_but_locked: 계정이 있으나 계정이 잠겨있어 로그인할 수 없습니다. 잠금을 풀어주세요.
+      signed_up_but_unconfirmed: 이메일로 계정 활성화 주소를 보냈습니다. 메일함을 확인해주세요.
+      update_needs_confirmation: 이메일을 수정하였습니다. 바뀐 이메일을 인증하려면 메일함을 확인해주세요.
+      updated: 계정 정보가 수정되었습니다.
+    sessions:
+      already_signed_out: 로그아웃하였습니다.
+      invalid: 이메일 또는 비밀번호를 다시 확인하세요.
+      public_domain: 비즈니스 서비스에서는 %{domain}과 같은 개인 메일은 사용할 수 없습니다. 회사 메일을 사용하여 새로운
+        계정을 만들어주세요.
+      signed_in: 로그인하였습니다.
+      signed_out: 로그아웃하였습니다.
+    unlocks:
+      send_instructions: 잠시 후 이메일로 계정 잠금 해제 지침을 받아보실 수 있습니다.
+      send_paranoid_instructions: 잠시 후 이메일로 계정 잠금 해제 지침을 받아보실 수 있습니다.
+      unlocked: 계정 잠금이 풀렸습니다. 서비스를 이용하려면 로그인해주세요.
+  errors:
+    messages:
+      already_confirmed: "(은)는 이미 인증되었습니다. 다시 로그인해 보세요."
+      confirmation_period_expired: "%{period} 이내에 이메일 인증을 해야 합니다. 새로 요청해 주세요."
+      expired: "(이)가 만료되었습니다. 새로 요청해 주세요."
+      not_found: 이메일을 찾을 수 없습니다.
+      not_locked: "(은)는 잠기지 않았습니다."
+      not_saved: 오류가 %{count}개 발생해 %{resource}를 저장할 수 없습니다.

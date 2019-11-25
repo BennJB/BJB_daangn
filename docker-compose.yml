@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  mysql-server:
+    image: mysql:8.0.17
+    command: --lower_case_table_names=1
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_HOST=%
+
+  app: &app
+    image: grepp/rails-webapp:1.0.1
+    tmpfs:
+      - /tmp
+
+  backend: &backend
+    <<: *app
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - rails_cache:/app/tmp/cache
+      - bundle:/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      - NODE_ENV=development
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - BOOTSNAP_CACHE_DIR=/bundle/bootsnap
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
+      - WEB_CONCURRENCY=1
+      - EDITOR=vi
+    depends_on:
+      - mysql-server
+
+  shell:
+    <<: *backend
+    command: /bin/bash
+    ports:
+      - '5000:5000'
+      - '3002:3002'
+
+  server:
+    <<: *backend
+    command: bundle exec rails server -b 0.0.0.0 -p 5000
+    ports:
+      - '5000:5000'
+
+  webpacker:
+    <<: *app
+    command: ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+    volumes:
+      - .:/app:cached
+      - bundle:/bundle
+      - node_modules:/app/node_modules
+      - packs:/app/public/packs
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+
+volumes:
+  mysql:
+  bundle:
+  node_modules:
+  rails_cache:
+  packs:
